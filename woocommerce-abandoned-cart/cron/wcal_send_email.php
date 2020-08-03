@@ -497,7 +497,7 @@ if ( !class_exists( 'woocommerce_abandon_cart_cron' ) ) {
             $query = "SELECT wpac . * , wpu.user_login, wpu.user_email
                 FROM `".$wpdb->prefix."ac_abandoned_cart_history_lite` AS wpac
                 LEFT JOIN ".$wpdb->base_prefix."users AS wpu ON wpac.user_id = wpu.id
-                WHERE cart_ignored = %s AND unsubscribe_link = %s AND abandoned_cart_time < $cart_time
+                WHERE cart_ignored = '%s' AND unsubscribe_link = %s AND abandoned_cart_time < $cart_time
                 $wcal_add_template_condition
                 ORDER BY `id` ASC ";
 

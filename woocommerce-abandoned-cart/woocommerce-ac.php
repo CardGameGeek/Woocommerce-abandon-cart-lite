@@ -1194,7 +1194,7 @@ if ( ! class_exists( 'woocommerce_abandon_cart_lite' ) ) {
 						if ( ! $this->wcal_compare_carts( $user_id, $results[0]->abandoned_cart_info ) ) {
 							$updated_cart_ignored = 1;
 							$query_ignored = "UPDATE `".$wpdb->prefix."ac_abandoned_cart_history_lite`
-											  SET cart_ignored = %s
+											  SET cart_ignored = '%s'
 											  WHERE user_id    = %d ";
 							$wpdb->query( $wpdb->prepare( $query_ignored, $updated_cart_ignored, $user_id ) );
 
@@ -1223,7 +1223,7 @@ if ( ! class_exists( 'woocommerce_abandon_cart_lite' ) ) {
 										 SET abandoned_cart_info = %s,
 											 abandoned_cart_time = %d
 										 WHERE user_id      = %d
-										 AND   cart_ignored = %s ";
+										 AND   cart_ignored = '%s' ";
 						$wpdb->query( $wpdb->prepare( $query_update, $updated_cart_info, $current_time, $user_id, $cart_ignored ) );
 
 						$query_update = "SELECT * FROM `" . $wpdb->prefix . "ac_abandoned_cart_history_lite` WHERE user_id ='" . $user_id . "' AND cart_ignored='0' ";

@@ -461,7 +461,7 @@ if ( ! class_exists( 'Wcal_Dashoard_Report' ) ) {
 
 			global $wpdb;
 
-			$get_ids = $wpdb->get_col( $wpdb->prepare( 'SELECT recovered_cart FROM `' . $wpdb->prefix . 'ac_abandoned_cart_history_lite` WHERE abandoned_cart_time >= %s AND abandoned_cart_time <= %s AND cart_ignored = "1" AND recovered_cart > 0', $start_time, $end_time ) ); //phpcs:ignore
+			$get_ids = $wpdb->get_col( $wpdb->prepare( 'SELECT recovered_cart FROM `' . $wpdb->prefix . 'ac_abandoned_cart_history_lite` WHERE abandoned_cart_time >= %s AND abandoned_cart_time <= %s AND cart_ignored = \'1\' AND recovered_cart > 0', $start_time, $end_time ) ); //phpcs:ignore
 
 			return $get_ids;
 		}

@@ -50,7 +50,7 @@ class Wcal_Admin_Notice {
 
 		// phpcs:ignore WordPress.DB.DirectDatabaseQuery
 		$results = $wpdb->get_results(
-			'SHOW FULL COLUMNS FROM `' . $wpdb->prefix . 'ac_email_templates_lite` WHERE Field = "subject" OR Field = "body"'
+			'SHOW FULL COLUMNS FROM `' . $wpdb->prefix . 'ac_email_templates_lite` WHERE Field = \'subject\' OR Field = \'body\''
 		);
 
 		foreach ( $results as $key => $value ) {
